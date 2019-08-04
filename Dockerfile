@@ -1,4 +1,4 @@
-FROM golang:alpine3.10
+FROM alpine:3.10
 
 LABEL maintainer="Milan Das <milan.das77@gmail.com>"
 
