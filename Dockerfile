@@ -1,5 +1,5 @@
 FROM alpine:3.10
-
+# docker run -it --rm dmilan/alpine-plus
 LABEL maintainer="Milan Das <milan.das77@gmail.com>"
 
 
@@ -19,3 +19,8 @@ RUN apk add --update ca-certificates \
  && apk del --purge deps \
  && rm /var/cache/apk/* 
 
+# Install aws-cli
+RUN apk -Uuv add groff less python py-pip
+RUN pip install awscli
+RUN apk --purge -v del py-pip
+RUN rm /var/cache/apk/*
