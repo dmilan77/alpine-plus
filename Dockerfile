@@ -14,6 +14,7 @@ RUN apk add --update ca-certificates \
  && apk add  --no-cache curl \
  && apk add  --no-cache jq \
  && apk add  --no-cache util-linux \
+ && apk add --update --no-cache bind-tools \
  && curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -o /usr/bin/kubectl \
  && chmod +x /usr/bin/kubectl \
  && apk del --purge deps \
