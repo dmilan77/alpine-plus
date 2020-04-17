@@ -46,6 +46,9 @@ RUN apk --no-cache add \
     gcloud config set component_manager/disable_update_check true && \
     gcloud config set metrics/environment github_docker_image && \
     gcloud --version
-
+RUN curl  https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip -o /tmp/terraform.zip --silent
+RUN unzip /tmp/terraform.zip -d /tmp/
+RUN chmod 755 /tmp/terraform
+RUN mv /tmp/terraform /usr/bin/
 RUN rm /var/cache/apk/*
 RUN rm -rf /tmp/*
