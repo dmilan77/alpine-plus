@@ -1,3 +1,5 @@
+FROM docker:17.12.0-ce as static-docker-source
+
 FROM alpine:3.10
 # docker run -it --rm dmilan/alpine-plus
 LABEL maintainer="Milan Das <milan.das77@gmail.com>"
@@ -30,6 +32,8 @@ ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 ENV CLOUDSDK_PYTHON=python3
 
 ENV PATH /google-cloud-sdk/bin:$PATH
+COPY --from=static-docker-source /usr/local/bin/docker /usr/local/bin/docker
+
 RUN apk --no-cache add \
         curl \
         python3 \
