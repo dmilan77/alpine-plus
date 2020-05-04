@@ -3,6 +3,8 @@
 `kubectl run  -it --rm --restart='Never' --image=docker.io/dmilan/alpine-plus:latest alpine-plus`
 
 ```
+# kubectl apply -f https://raw.githubusercontent.com/dmilan77/alpine-plus/master/pod-alpine-plus.yaml
+# kubectl exec -it alpine-plus -- bash
 # pod-alpine-plus.yaml
 apiVersion: v1
 kind: Pod
